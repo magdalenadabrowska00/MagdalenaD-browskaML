@@ -53,9 +53,7 @@ class Employee:
         self.phone = phone
 
     def __str__(self):
-        return "Employee: " + "First name: " + self.first_name + " Last name: " + self.last_name 
-        + " Hire date: " + self.hire_date + " Birth date: " + self.birth_date + " City: " + self.city 
-        + " Street: " + self.street + " Zip code: " + self.zip_code + " Phone: " + self.phone
+        return "Employee: " + "First name: " + self.first_name + " Last name: " + self.last_name + " Hire date: " + self.hire_date + " Birth date: " + self.birth_date + " City: " + self.city + " Street: " + self.street + " Zip code: " + self.zip_code + " Phone: " + self.phone
 
 
 class Book:
@@ -66,8 +64,6 @@ class Book:
         self.author_surname = author_surname
         self.number_of_pages = number_of_pages
     
-    
-
     def __str__(self):
         return f'Book: {self.library}, Publication date: {self.publication_date}, Author name: {self.author_name}, Author surname: {self.author_surname}, Number of pages{self.number_of_pages}'
 
@@ -80,7 +76,7 @@ class Order:
         self.order_date = order_date
 
     def __str__(self):
-     return f'Employee: {self.employee} Student: {self.student} Books: {str([str(book) for book in self.books])} OrderDate: {self.order_date}'
+        return f'Employee: {self.employee} Student: {self.student} Books: {str([str(book) for book in self.books])} OrderDate: {self.order_date}'
 
 
 def main2():
@@ -91,16 +87,17 @@ def main2():
     book3 = Book(library1, "2022-01-01", "Przemysław", "Doktór", "200")
     book4 = Book(library2, "2022-01-01", "Maciej", "Duda", "20")
     book5 = Book(library1, "2022-01-01", "Andrzej", "Duda", "100")
-    Magda = Student("Magda", [3,3,2,2,3,4,5,3,4,])
-    Przemek = Student("Przemek", [5,100, 200, 5, 300, 50])
+    Magda = Student("Magda", [3, 3, 2, 2, 3, 4, 5, 3, 4])
+    Przemek = Student("Przemek", [5, 100, 200, 5, 300, 50])
     employee1 = Employee("Mateusz", "Haręża", '2020-09-09', '1997-12-11', 'Katowice', 'Zawadzka', '50-001', "111444999")
     employee2 = Employee("Maciej", "Duda", '2020-09-09', '2001-12-11', 'Ruda Slaska', 'Opolska', '50-001', "222333444")
     employee3 = Employee("Magdalena", "Dabrowska", '2020-09-09', '2001-12-11', 'Katowice', 'Polska', '50-001', "999888777")
     order1 = Order(employee2, Magda, [book1, book2], "2022-10-17")
-    order2 = Order(employee1, Przemek, [book1,book3], '2015-03-04')
+    order2 = Order(employee1, Przemek, [book1, book3], '2015-03-04')
 
     print(order1)
     print(order2)
+
 
 main2()
     
@@ -112,38 +109,39 @@ class Property():
         self.rooms = rooms
         self.price = price
         self.address = address
-    
+
     @property
-    def area(self) -> None:
+    def area(self):
         return self.area
 
     @area.setter
-    def area(self, value:str) -> None:
+    def area(self, value):
         self.area = value
         
     @property
-    def rooms(self) -> None:
-        return self.rooms 
+    def rooms(self):
+        return self.rooms
 
     @rooms.setter
-    def rooms(self, value:int) -> None:
+    def rooms(self, value):
         self.rooms = value
-        
+
     @property
-    def price(self) -> None:
+    def price(self):
         return self.price
 
     @price.setter
-    def price(self, value:int) -> None:
+    def price(self, value):
         self.price = value
         
     @property
-    def address(self) ->None:
+    def address(self):
         return self.address
 
     @address.setter
-    def address(self, value) -> None:
+    def address(self, value):
         self.address = value
+
 
 class House(Property):
     def __init__(self, plot, area, rooms, price, address):
@@ -151,8 +149,8 @@ class House(Property):
         self.plot = plot
         
     def __str__(self):
-        return f'House: {self.plot}, {super().area}, {super().rooms}, {super().price}, {super().address}'
-     
+        return f'House: {self.plot}, {self.area} {self.rooms} {self.price} {self.address}'
+
 
 class Flat(Property):
     def __init__(self, floor, area, rooms, price, address):
@@ -160,14 +158,15 @@ class Flat(Property):
         self.floor = floor
 
     def __str__(self):
-        return f'Flat: {self.floor}, {super().area}, {super().rooms}, {super().price}, {super().address}'
-   
-def main():
-    prop = Property("Kostuchna", 4, 2000, 'Katowice',)
+        return f'Flat: {self.floor}, {self.area} {self.rooms} {self.price} {self.address}'
+    
+
+def main3():
+    prop = Property("Kostuchna", 4, 2000, 'Katowice')
     house = House(prop, '3x4')
     flat = Flat(prop, 12)
-    
-    print(house) 
+    print(house)
     print(flat)
-    
-main()
+
+
+main3()
