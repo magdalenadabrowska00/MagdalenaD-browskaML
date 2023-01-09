@@ -16,6 +16,7 @@ class Model():
                                         3)),
                 RandomRotation(0.1),
                 RandomZoom(0.1),
+                RandomBrightness(factor=0.2),
             ]
         )
 
