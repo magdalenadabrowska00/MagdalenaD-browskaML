@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow.keras.layers import RandomWidth, RandomHeight, RandomZoom, RandomFlip, RandomRotation
+from tensorflow.keras.layers import RandomWidth, RandomHeight, RandomZoom, RandomFlip, RandomRotation, RandomBrightness
 from tensorflow.keras.utils import image_dataset_from_directory
 import os; os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 import os
@@ -16,9 +16,9 @@ import math
 from tensorflow import keras
 
 
-width, height = 299,299
-learning_rate= 0.001
-batch_size=32
+width, height = 128,128
+learning_rate=0.00001
+batch_size= 32
 epochs = 10
 
 local_folder = 'C:\\Users\\Magda\\Desktop\\Magda nauka\\Informatyka\\Semestr 5\\Uczenie maszynowe\\Datasety'
@@ -72,8 +72,7 @@ print("Ilość plików w zbiorze testowym:", get_number_of_files_in_dataset(test
 examples=show_examples()
 
 model = Model()
-history = model.model_definition().fit(train_dataset, validation_data=valid_dataset, epochs=epochs)
-
+model.model_definition().fit(train_dataset, validation_data=valid_dataset, epochs=epochs)
 
 
 
